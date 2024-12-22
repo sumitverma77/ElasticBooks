@@ -1,27 +1,29 @@
 package com.security.elasticsearchpractice.repo;
 
-import com.security.elasticsearchpractice.entity.Book;
+import com.security.elasticsearchpractice.entity.BookEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.elasticsearch.core.RefreshPolicy;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public class BookRepo implements ElasticsearchRepository<Book, String> {
+@Repository
+public class BookRepo implements ElasticsearchRepository<BookEntity, String> {
     @Override
-    public Page<Book> searchSimilar(Book entity, String[] fields, Pageable pageable) {
+    public Page<BookEntity> searchSimilar(BookEntity entity, String[] fields, Pageable pageable) {
         return null;
     }
 
     @Override
-    public <S extends Book> S save(S entity, RefreshPolicy refreshPolicy) {
+    public <S extends BookEntity> S save(S entity, RefreshPolicy refreshPolicy) {
         return null;
     }
 
     @Override
-    public <S extends Book> Iterable<S> saveAll(Iterable<S> entities, RefreshPolicy refreshPolicy) {
+    public <S extends BookEntity> Iterable<S> saveAll(Iterable<S> entities, RefreshPolicy refreshPolicy) {
         return null;
     }
 
@@ -31,7 +33,7 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public void delete(Book entity, RefreshPolicy refreshPolicy) {
+    public void delete(BookEntity entity, RefreshPolicy refreshPolicy) {
 
     }
 
@@ -41,7 +43,7 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Book> entities, RefreshPolicy refreshPolicy) {
+    public void deleteAll(Iterable<? extends BookEntity> entities, RefreshPolicy refreshPolicy) {
 
     }
 
@@ -51,17 +53,17 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public <S extends Book> S save(S entity) {
+    public <S extends BookEntity> S save(S entity) {
         return null;
     }
 
     @Override
-    public <S extends Book> Iterable<S> saveAll(Iterable<S> entities) {
+    public <S extends BookEntity> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
     }
 
     @Override
-    public Optional<Book> findById(String s) {
+    public Optional<BookEntity> findById(String s) {
         return Optional.empty();
     }
 
@@ -71,12 +73,12 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public Iterable<Book> findAll() {
+    public Iterable<BookEntity> findAll() {
         return null;
     }
 
     @Override
-    public Iterable<Book> findAllById(Iterable<String> strings) {
+    public Iterable<BookEntity> findAllById(Iterable<String> strings) {
         return null;
     }
 
@@ -91,7 +93,7 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public void delete(Book entity) {
+    public void delete(BookEntity entity) {
 
     }
 
@@ -101,7 +103,7 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Book> entities) {
+    public void deleteAll(Iterable<? extends BookEntity> entities) {
 
     }
 
@@ -111,12 +113,12 @@ public class BookRepo implements ElasticsearchRepository<Book, String> {
     }
 
     @Override
-    public Iterable<Book> findAll(Sort sort) {
+    public Iterable<BookEntity> findAll(Sort sort) {
         return null;
     }
 
     @Override
-    public Page<Book> findAll(Pageable pageable) {
+    public Page<BookEntity> findAll(Pageable pageable) {
         return null;
     }
 }
