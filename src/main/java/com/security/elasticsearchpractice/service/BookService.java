@@ -9,8 +9,12 @@ import com.security.elasticsearchpractice.entity.BookEntity;
 import com.security.elasticsearchpractice.enums.ApiResponseStatus;
 import com.security.elasticsearchpractice.repo.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
+
+import static java.util.Objects.isNull;
 
 @Service
 public class BookService {
@@ -21,5 +25,12 @@ BookRepo bookRepo;
      bookRepo.save(book);
      return new ApiResponseWrapper<>(ApiResponseStatus.SUCCESS.getCode(), ApiResponseStatus.SUCCESS.getMessage(), BookConverter.toBookSaveResponse(book));
     }
-
+    public ApiResponseWrapper<BookSaveResponse> getBook(String isbn) {
+        BookEntity book= bookRepo.findAllByIsbn(isbn);
+  if (Objects.isNull(book))
+        {
+            return new ApiResponseWrapper<>(ApiResponseStatus.BOOK_NOT_FOUND.getCode(), ApiResponseStatus.BOOK_NOT_FOUND.getMessage(), null);
+        }
+        return new ApiResponseWrapper<>(ApiResponseStatus.SUCCESS.getCode(), ApiResponseStatus.SUCCESS.getMessage(), BookConverter.toBookSaveResponse(book));
+    }
 }
